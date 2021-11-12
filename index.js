@@ -121,10 +121,10 @@ async function run() {
 run().catch(console.dir);
 
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+app.get("/", (req, res) => {
+    res.send("Server is running");
+});
 
-app.listen(port || process.env.PORT, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(port, () => {
+    console.log("Server running at port", port);
+});
