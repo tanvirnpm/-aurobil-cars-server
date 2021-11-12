@@ -47,6 +47,18 @@ async function run() {
             const result = await ordersCollection.insertOne(order);
             res.json(result)
         })
+        // delete order by id
+        app.post('/delete-order/:id', async (req, res)=>{
+            const id = req.params.id;
+            const result = await ordersCollection.deleteOne({_id: ObjectId(id)});
+            res.json(result)
+        })
+        // delete order by chassis
+        app.post('/delete-product/:id', async (req, res)=>{
+            const id = req.params.id;
+            const result = await productCollection.deleteOne({_id: ObjectId(id)});
+            res.json(result)
+        })
         // get all user
         app.get('/get-user', async (req, res)=>{
             const allUser = await userCollection.find({}).toArray();
